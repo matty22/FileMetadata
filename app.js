@@ -13,7 +13,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 
 app.post('/submission', function(req, res) {
-  res.send("You submitted a file!");
+  var receivedFile = req.query.file;
+  res.send("You submitted " + receivedFile);
 });
 
 // catch 404 and forward to error handler
