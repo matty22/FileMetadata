@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', index);
 
 app.post('/submission', function(req, res) {
-  var receivedFile = req.query.file;
+  var receivedFile = req.body;
   console.log(receivedFile);
   res.send("You submitted " + receivedFile);
 });
