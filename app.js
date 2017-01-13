@@ -16,9 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', index);
 
 app.post('/submission', upload.single('doc'), function(req, res) {
-  var receivedFile = req.body;
-  var receivedDoc = req.body.file.size;
-  //console.log(receivedDoc);
+  var receivedDoc = req.file.size;
+  console.log(receivedDoc);
   res.send("You submitted " + receivedDoc);
 });
 
