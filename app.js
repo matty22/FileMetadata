@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
+//var multer  = require('multer')
+//var upload = multer({ dest: 'uploads/' })
 
 var index = require('./routes/index');
 
@@ -10,7 +12,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true })); 
+//app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/', index);
 
 app.post('/submission', function(req, res) {
