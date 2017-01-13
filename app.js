@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var multer  = require('multer')
 var upload = multer();
 
-var index = require('./public/index');
+var index = require('./routes/index');
 
 var app = express();
 
