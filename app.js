@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var multer  = require('multer')
-var upload = multer();
+var upload = multer({dest: './uploads/'});
 
 var index = require('./routes/index');
 
@@ -15,13 +15,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/', index);
 
-app.post('/submission', function(req, res) {
+app.post('/submission', upload.single('doc'), function(req, res) {
   if (req.file) {
     res.send("Thanks for file");
   } else {
     res.send("Missing File");
   }
-  
 });
 
 // catch 404 and forward to error handler
