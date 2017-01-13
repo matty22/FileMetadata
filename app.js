@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 
@@ -9,13 +10,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/', index);
 
 app.post('/submission', function(req, res) {
   var receivedFile = req.query.file;
-  console.log(receivedFile);
-  res.send("You submitted " + receivedFile);
+  console.log(receivedFile.body);
+  res.send("You submitted " + receivedFile.body);
 });
 
 // catch 404 and forward to error handler
