@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/', index);
 
-app.post('/submission', upload.single('doc'), function(req, res) {
+app.post('/submission', function(req, res) {
   if (req.file) {
     res.send("Thanks for file");
   } else {
