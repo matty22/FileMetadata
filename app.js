@@ -17,9 +17,9 @@ app.use('/', index);
 
 app.post('/submission', upload.single('doc'), function(req, res) {
   var receivedFile = req.body;
-  var receivedDoc = req.file;
+  var receivedDoc = req.body.file.size;
   //console.log(receivedDoc);
-  res.send("You submitted " + receivedDoc.size);
+  res.send("You submitted " + receivedDoc);
 });
 
 // catch 404 and forward to error handler
