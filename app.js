@@ -15,8 +15,8 @@ app.use('/', index);
 
 app.post('/submission', function(req, res) {
   var receivedFile = req.query.file;
-  console.log(receivedFile.body);
-  res.send("You submitted " + receivedFile.body);
+  console.log(receivedFile);
+  res.send("You submitted " + receivedFile);
 });
 
 // catch 404 and forward to error handler
