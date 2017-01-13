@@ -16,9 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', index);
 
 app.post('/submission', upload.single('doc'), function(req, res) {
-  var receivedDoc = req.file.size;
-  console.log(receivedDoc);
-  res.send("You submitted " + receivedDoc);
+  if (req.file) {
+    res.send("Thanks for file");
+  } else {
+    res.send("Missing File");
+  }
+  
 });
 
 // catch 404 and forward to error handler
