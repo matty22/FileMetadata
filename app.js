@@ -18,8 +18,8 @@ app.use('/', index);
 app.post('/submission', upload.single('doc'), function(req, res) {
   if (req.file) {
     var fileSize = req.file.size;
-    console.log(fileSize);
-    res.send("thanks for file");
+    var returnObj = { "size": fileSize };
+    res.send(returnObj);
   } else {
     res.send("Missing File");
   }
